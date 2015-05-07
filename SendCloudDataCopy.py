@@ -2,6 +2,7 @@ from azure.storage import TableService, Entity, QueueService
 import time
 import redis
 from tokens import *
+import random
 
 myaccount = getAccount()
 mykey = getKey()
@@ -9,7 +10,7 @@ mykey = getKey()
 table_service = TableService(account_name=myaccount, account_key=mykey)
 queue_service = QueueService(account_name=myaccount, account_key=mykey)
 
-queue_service.create_queue('acceldata')
+queue_service.create_queue('acceldata2')
 
 i = 0
 
@@ -23,7 +24,7 @@ record = {}
 
 def analog_read(channel):
     if channel == 0:
-        return 0
+        return 0 
     if channel == 1:
         return 1
     if channel == 2:
@@ -39,5 +40,6 @@ while True:
         print record
 
         table_service.insert_or_replace_entity('accel4', 'slot', tableSlot, record)
-        queue_service.put_message('acceldata', unicode(record))
+        queue_service.put_message('acceldata', str(record))
+        queue_service.put_message('acceldata', str(record), 
 
