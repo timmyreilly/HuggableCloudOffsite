@@ -7,7 +7,7 @@ from azure.storage import TableService, Entity
 myaccount = getAccount()
 mykey = getKey()
 
-r = redis.StrictRedis(host='pistate.redis.cache.windows.net', port=6380, db=0, password=getRedisToken, ssl=True)
+r = redis.StrictRedis(host='pistate.redis.cache.windows.net', port=6380, db=0, password=getRedisToken(), ssl=True)
 
 table_service = TableService(account_name=myaccount, account_key=mykey)
 
