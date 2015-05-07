@@ -28,6 +28,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CloudHugWebsite2.py" />
+    <Compile Include="helperFUNctions.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="MLTrainingSet.py">
       <SubType>Code</SubType>
     </Compile>
