@@ -13,11 +13,7 @@ mykey = getKey()
 table_service = TableService(account_name=myaccount, account_key=mykey)
 queue_service = QueueService(account_name=myaccount, account_key=mykey)
 
-def getMessage():
-    messages = queue_service.get_messages('acceldata')
-    for message in messages:
-        return message.message_text
-        queue_service.delete_message('acceldata', message.message_id, message.pop_receipt)
+
         
 #@app.route("/")
 #def home():
