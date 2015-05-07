@@ -1,12 +1,13 @@
 from pseudoAccelerometer import *
 import time
 import redis
+from tokens import *
 from azure.storage import TableService, Entity
 
-myaccount = "pipractice"
-mykey = "BJNu+LXFAAoaSYm8GRNmaRcBvyM6OySC9BgKc8fr03Z9myqzVXUHtsJNpsfD7uI9a6PPi1tZwUMvkx9C2z/4Zg=="
+myaccount = getAccount()
+mykey = getKey()
 
-r = redis.StrictRedis(host='pistate.redis.cache.windows.net', port=6380, db=0, password='4iOJwsDkHxBDyMWfk+xsrEzFwEAij/g48WINCiq/vjM=', ssl=True)
+r = redis.StrictRedis(host='pistate.redis.cache.windows.net', port=6380, db=0, password=getRedisToken, ssl=True)
 
 table_service = TableService(account_name=myaccount, account_key=mykey)
 
