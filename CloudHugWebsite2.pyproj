@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>146b401a-5c0f-46b7-9a86-bf1b929163c4</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>CloudHugWebsite2.py</StartupFile>
+    <StartupFile>SendCloudDataCopy.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -34,6 +34,9 @@
     <Compile Include="MLTrainingSet.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SendCloudDataCopy.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tokens.py">
       <SubType>Code</SubType>
     </Compile>
@@ -55,6 +58,7 @@
     <Folder Include="static\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="requirements.txt" />
     <Content Include="static\base.html" />
   </ItemGroup>
   <PropertyGroup>

@@ -29,6 +29,8 @@ def analog_read(channel):
     if channel == 2:
         return 2
 
+
+
 while True:
     for tableSlot in TableSlotList:
         for abcd in periods:
