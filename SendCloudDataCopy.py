@@ -1,13 +1,7 @@
 from azure.storage import TableService, Entity, QueueService
 import time
 import redis
-import spidev
 from tokens import *
-import ptvsd
-ptvsd.enable_attach('xplatDebug')
-
-spi = spidev.SpiDev()
-spi.open(0,0)
 
 myaccount = getAccount()
 mykey = getKey()
@@ -27,13 +21,13 @@ periods = ('a', 'b', 'c', 'd')
 
 record = {}
 
-#records = {'aX': generateX(),'aY': generateY(),'aZ': generateZ(),'bX': generateX(),'bY': generateY(),'bZ': generateZ(), 'cX': gener$
-
 def analog_read(channel):
-        r = spi.xfer2([1, (8 + channel) << 4, 0])
-        adc_out = ((r[1]&3) << 8) + r[2]
-        return adc_out
-
+    if channel == 0:
+        return 0
+    if channel == 1:
+        return 1
+    if channel == 2:
+        return 2
 
 while True:
     for tableSlot in TableSlotList:
