@@ -21,8 +21,7 @@ app = Flask(__name__)
 while True:
     x = eval(getMessage())
     print x
-    z = getDictOfUnicode(x)
-    print z.get('cZ')
+    print x.get('cZ')
 
 #@app.route("/")
 #def home():

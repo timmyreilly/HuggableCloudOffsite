@@ -11,18 +11,30 @@ mykey = getKey()
 table_service = TableService(account_name=myaccount, account_key=mykey)
 queue_service = QueueService(account_name=myaccount, account_key=mykey)
 
+queueName = 'acceldata'
+tableName = 'accel4'
 
 def getAzureTable():
+    '''returns table_service object of current storage account in use'''
     return table_service
 
+def getTableName():
+    '''get string of current working table'''
+    return tableName
+
 def getAzureQueue():
+    '''returns QueueService object of current storage account in use'''
     return queue_service 
 
+def getQueueName():
+    '''returns string of current working queue'''
+    return queueName
+
 def getMessage():
-    messages = queue_service.get_messages('acceldata')
+    messages = queue_service.get_messages(getQueueName())
     for message in messages:
         return message.message_text
-        queue_service.delete_message('acceldata', message.message_id, message.pop_receipt)
+        queue_service.delete_message(getQueueName(), message.message_id, message.pop_receipt)
 
 def getDictOfUnicode(x):
     return eval(str(x))
@@ -35,3 +47,6 @@ def generateRandom(xyorz):
     if xyorz == 'z':
         return random.randint(100, 999)
 
+def getQueueCount():
+    queue_metadata = queue_service.get_queue_metadata(getQueueName())
+    return queue_metadata['x-ms-approximate-messages-count']

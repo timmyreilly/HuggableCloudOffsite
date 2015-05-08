@@ -34,7 +34,7 @@ while True:
             time.sleep(0.1) 
             record.update({abcd+'Z': generateX(), abcd+'Y': generateY(), abcd+'Z': generateZ()})
         print record
-        table_service.insert_or_replace_entity('accel4', 'slot', tableSlot, record)
+        table_service.insert_or_replace_entity(getTableName(), 'slot', tableSlot, record)
 
 while True: 
 
@@ -48,7 +48,7 @@ while True:
             yValue = generateY()
             zValue = generateZ()
             record.update({abcd+'Z': xValue, abcd+'Y': yValue, abcd+'Z': zValue})
-        table_service.insert_or_replace_entity('accel4', 'slot', tableSlot, record)
+        table_service.insert_or_replace_entity(getTableName(), 'slot', tableSlot, record)
     
 
 while True: 

@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>146b401a-5c0f-46b7-9a86-bf1b929163c4</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>SendCloudDataCopy.py</StartupFile>
+    <StartupFile>CloudHugWebsite2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
