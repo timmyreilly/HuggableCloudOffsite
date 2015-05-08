@@ -37,7 +37,7 @@ while True:
         for abcd in periods:
             time.sleep(0.1)
             record.update({abcd+'X': analog_read(0), abcd+'Y': analog_read(1), abcd+'Z': analog_read(2)})
-        print sorted(record)
+        print record
 
         table_service.insert_or_replace_entity(getTableName(), 'slot', tableSlot, record)
         queue_service.put_message(getQueueName(), record)

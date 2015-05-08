@@ -20,9 +20,10 @@ app = Flask(__name__)
 
 while True:
     x = eval(getMessage())
-    print x
-    print x.get('cZ')
-
+    print type(x)
+    for i in sorted(x):
+        print str(i) + ' ' + str(x[i])
+   
 #@app.route("/")
 #def home():
 #    print 'here'

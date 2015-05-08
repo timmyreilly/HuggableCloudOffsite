@@ -33,8 +33,9 @@ def getQueueName():
 def getMessage():
     messages = queue_service.get_messages(getQueueName())
     for message in messages:
-        return message.message_text
+        messageText = message.message_text
         queue_service.delete_message(getQueueName(), message.message_id, message.pop_receipt)
+        return messageText
 
 def getDictOfUnicode(x):
     return eval(str(x))
