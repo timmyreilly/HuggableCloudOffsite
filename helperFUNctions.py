@@ -48,12 +48,13 @@ def getMessage():
         return messageText
 
 def getDictFromQueue():
-    ''' bad function doesn't do anything do not use ''' 
-    if getMessage():
+    ''' returns dictionary of message from Queue ''' 
+    if peekMessageAvailable():
         x = eval(getMessage())
         return x
     else:
         return False
+
 
 def generateRandom(xyorz):
     ''' generates random numbers for x (single digit), y(2 digit, z(3 digit) '''

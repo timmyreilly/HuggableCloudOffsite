@@ -10,13 +10,14 @@ app = Flask(__name__)
 
 
 while True:
-    if peekMessageAvailable():
-        x = eval(getMessage())
-        for i in sorted(x):
+    x = getDictFromQueue()
+    if x == False:
+        print "Nothing in Queue"
+        time.sleep(0.2)
+        pass
+    for i in sorted(x):
             print str(i) + ' ' + str(x[i])
-    else:
-        x = 'Nothing in Queue'
-
+    
 
 
     #x = getDictFromQueue()
