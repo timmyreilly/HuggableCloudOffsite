@@ -11,12 +11,12 @@ app = Flask(__name__)
 
 while True:
     x = getDictFromQueue()
-    if x == False:
+    if x == {''}:
         print "Nothing in Queue"
         time.sleep(0.2)
-        pass
-    for i in sorted(x):
-            print str(i) + ' ' + str(x[i])
+    else:
+        for i in sorted(x):
+                print str(i) + ' ' + str(x[i])
     
 
 

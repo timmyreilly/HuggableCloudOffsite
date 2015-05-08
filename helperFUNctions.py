@@ -53,7 +53,7 @@ def getDictFromQueue():
         x = eval(getMessage())
         return x
     else:
-        return False
+        return {''}
 
 
 def generateRandom(xyorz):
