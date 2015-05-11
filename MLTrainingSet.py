@@ -1,3 +1,53 @@
-from azure.storage import TableService
+import time
 
-once connected to table 
+from tokens import *
+from helperFUNctions import *
+
+from azure.storage import TableService, Entity, QueueService
+
+myaccount = getAccount()
+mykey = getKey()
+
+table_service = TableService(account_name=myaccount, account_key=mykey)
+
+TableSlotNeutral = return_list_generator(0,1999)
+TableSlotShaking = return_list_generator(2000, 3999) 
+
+
+def analog_read(channel):
+    if channel == 0:
+        return generateRandom('x')
+    if channel == 1:
+        return generateRandom('y')
+    if channel == 2:
+        return generateRandom('z')
+
+while True: 
+    x = get_input_type()
+    if x == 'n':
+        print 'In 5 seconds start neutral'
+        print 'send 2000 points of data to ML set marked neutral'
+        time.sleep(5.0)
+        print 'START'
+        time.sleep(0.5)
+        for tableSlot in TableSlotNeutral:
+            for abcd in periods:
+                time.sleep(0.1)
+                record.update({abcd+'X': analog_read(0), abcd+'Y': analog_read(1), abcd+'Z': analog_read(2)})
+            print record
+            table_service.insert_or_replace_entity(getMLTableName(), 'NEUTRAL', tableSlot, record)
+
+    elif x == 's':
+        print 'In 5 seconds start shaking'
+        print 'send 2000 points of data to ML set marked shaking'
+        time.sleep(5.0)
+        print 'START'
+        time.sleep(0.5)
+        for tableSlot in TableSlotShaking:
+            for abcd in periods:
+                time.sleep(0.1)
+                record.update({abcd+'X': analog_read(0), abcd+'Y': analog_read(1), abcd+'Z': analog_read(2)})
+            print record
+            table_service.insert_or_replace_entity(getMLTableName(), 'SHAKING', tableSlot, record)
+
+    print x

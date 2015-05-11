@@ -13,6 +13,7 @@ queue_service = QueueService(account_name=myaccount, account_key=mykey)
 
 queueName = 'acceldata'
 tableName = 'accel4'
+mlTableName = 'MLTraining'
 
 def getAzureTable():
     '''returns table_service object of current storage account in use'''
@@ -21,6 +22,10 @@ def getAzureTable():
 def getTableName():
     '''get string of current working table'''
     return tableName
+
+def getMLTableName():
+    '''get mlTableName of current working table'''
+    return mlTableName
 
 def getAzureQueue():
     '''returns QueueService object of current storage account in use'''
@@ -71,9 +76,25 @@ def getQueueCount():
 
 
 def get_input_type():
-    state = raw_input("Enter 'n' for neutral or 's' for shaking")
-    if state != 'n' or state != 's' :
+    'returns n or s and nothing else - TODO: still having issues with returning none'
+    state = raw_input("Enter 'n' for neutral or 's' for shaking -> ")
+    if state != 'n' and state != 's' :
         print "Invalid input. Try Again "
         get_input_type()
     else:
         return state
+
+
+def swap(a,b):
+    'returns the two items in reverse order'
+    return b, a
+
+
+def return_list_generator(first, last):
+    'returns a generator with the first value iterating to the last value for use with ints'
+    if first > last:
+        first, last = swap(first, last)
+    num = first
+    while num <= last:
+        yield num
+        num += 1
