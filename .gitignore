@@ -1,4 +1,4 @@
 tokens.py
 RAWSendCloudDataCopy.py
-ignore.py
+#module1.py
 *.pyc
