@@ -10,9 +10,13 @@ mykey = getKey()
 
 table_service = TableService(account_name=myaccount, account_key=mykey)
 
-TableSlotNeutral = return_list_generator(0,1999)
-TableSlotShaking = return_list_generator(2000, 3999) 
+TableSlotNeutral = return_list_generator(0,999)
+TableSlotShaking = return_list_generator(1000, 1999) 
 
+periods = ('a', 'b', 'c', 'd')
+record = {}
+
+table_service.create_table(getMLTableName())
 
 def analog_read(channel):
     if channel == 0:
@@ -24,6 +28,7 @@ def analog_read(channel):
 
 while True: 
     x = get_input_type()
+    print x
     if x == 'n':
         print 'In 5 seconds start neutral'
         print 'send 2000 points of data to ML set marked neutral'
@@ -50,4 +55,4 @@ while True:
             print record
             table_service.insert_or_replace_entity(getMLTableName(), 'SHAKING', tableSlot, record)
 
-    print x
+    
