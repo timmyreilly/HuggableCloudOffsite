@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 
 while True:
+
     x = getDictFromQueue()
     if x == {''}:
         print "Nothing in Queue"

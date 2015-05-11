@@ -68,3 +68,12 @@ def generateRandom(xyorz):
 def getQueueCount():
     queue_metadata = queue_service.get_queue_metadata(getQueueName())
     return queue_metadata['x-ms-approximate-messages-count']
+
+
+def get_input_type():
+    state = raw_input("Enter 'n' for neutral or 's' for shaking")
+    if state != 'n' or state != 's' :
+        print "Invalid input. Try Again "
+        get_input_type()
+    else:
+        return state
