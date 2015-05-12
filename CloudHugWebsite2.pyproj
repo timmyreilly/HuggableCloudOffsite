@@ -58,11 +58,11 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="static\" />
+    <Folder Include="templates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
-    <Content Include="static\base.html" />
+    <Content Include="templates\base.html" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
