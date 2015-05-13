@@ -98,3 +98,22 @@ def return_list_generator(first, last):
     while num <= last:
         yield num
         num += 1
+
+
+def return_states_from_request(result):
+    x = eval(result)
+    first = x['Results']['output1']['value']['Values'][0][13]
+    second = x['Results']['output1']['value']['Values'][1][13]
+    return first, second
+
+
+
+data =  {
+     "Inputs": {
+         "input1": {
+             "ColumnNames": ["PartitionKey", "RowKey", "aX", "aY", "aZ", "bX", "bY", "bZ", "cX", "cY", "cZ", "dX", "dY", "dZ"],
+             "Values": [ [ "value", "", "123", "191", "1015", "30", "101", "1015", "19", "73", "1014", "31", "64", "1013" ], [ "value", "", "277", "239", "992", "428", "381", "992", "423", "359", "993", "423", "349", "993" ], ]
+             },
+         },
+     "GlobalParameters": {}
+     }

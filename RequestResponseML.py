@@ -1,18 +1,19 @@
 import urllib2
 # If you are using Python 3+, import urllib instead of urllib2
 from tokens import *
+from helperFUNctions import *
 import json 
 
 
 data =  {
-    "Inputs": {
-        "input1": {
-            "ColumnNames": ["PartitionKey", "RowKey", "aX", "aY", "aZ", "bX", "bY", "bZ", "cX", "cY", "cZ", "dX", "dY", "dZ"],
-            "Values": [ [ "value", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ], [ "value", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ], ]
-            },
-        },
-    "GlobalParameters": {}
-    }
+     "Inputs": {
+         "input1": {
+             "ColumnNames": ["PartitionKey", "RowKey", "aX", "aY", "aZ", "bX", "bY", "bZ", "cX", "cY", "cZ", "dX", "dY", "dZ"],
+             "Values": [ [ "value", "", "123", "191", "1015", "30", "101", "1015", "19", "73", "1014", "31", "64", "1013" ], [ "value", "", "277", "239", "992", "428", "381", "992", "423", "359", "993", "423", "349", "993" ], ]
+             },
+         },
+     "GlobalParameters": {}
+     }
 
 body = str.encode(json.dumps(data))
 
@@ -27,6 +28,9 @@ try:
 
     result = response.read()
     print(result) 
+    print (return_states_from_request(result))
+
+
 except urllib2.HTTPError, error:
     print("The request failed with status code: " + str(error.code))
 
