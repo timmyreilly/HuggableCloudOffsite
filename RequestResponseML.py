@@ -5,16 +5,13 @@ import json
 
 
 data =  {
-
-        "Inputs": {
-
-                "input1":
-                {
-                    "ColumnNames": ["PartitionKey", "RowKey", "aX", "aY", "aZ", "bX", "bY", "bZ", "cX", "cY", "cZ", "dX", "dY", "dZ"],
-                    "Values": [ [ "value", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ], [ "value", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ], ]
-                },        },
-            "GlobalParameters": {
-}
+    "Inputs": {
+        "input1": {
+            "ColumnNames": ["PartitionKey", "RowKey", "aX", "aY", "aZ", "bX", "bY", "bZ", "cX", "cY", "cZ", "dX", "dY", "dZ"],
+            "Values": [ [ "value", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ], [ "value", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ], ]
+            },
+        },
+    "GlobalParameters": {}
     }
 
 body = str.encode(json.dumps(data))
