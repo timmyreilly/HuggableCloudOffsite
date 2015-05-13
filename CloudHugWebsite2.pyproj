@@ -37,6 +37,9 @@
     <Compile Include="RAWSendCloudDataCopy.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="RequestResponseML.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="SendCloudDataCopy.py">
       <SubType>Code</SubType>
     </Compile>
