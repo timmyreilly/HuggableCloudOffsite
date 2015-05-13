@@ -101,10 +101,33 @@ def return_list_generator(first, last):
 
 
 def return_states_from_request(result):
+    ''' pulls out state from result'''
     x = eval(result)
     first = x['Results']['output1']['value']['Values'][0][13]
     second = x['Results']['output1']['value']['Values'][1][13]
     return first, second
+
+def make_data(one, two):
+    '''Returns data object to be passed as JSON'''
+    data =  {
+     "Inputs": {
+         "input1": {
+             "ColumnNames": ["PartitionKey", "RowKey", "aX", "aY", "aZ", "bX", "bY", "bZ", "cX", "cY", "cZ", "dX", "dY", "dZ"],
+             "Values": [ one, two, ]
+             },
+         },
+     "GlobalParameters": {}
+     }
+    return data
+
+def make_list_from_dict(x):
+    y = sorted(x)
+    l = ['value', '']
+    for i in y:
+        l.append(x[i])
+    l = map(str, l)
+    return l
+
 
 
 
