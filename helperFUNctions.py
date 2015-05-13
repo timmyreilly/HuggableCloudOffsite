@@ -3,7 +3,8 @@
 from tokens import *
 from azure.storage import TableService, Entity, QueueService
 import random
-
+import json
+import urllib2
 
 myaccount = getAccount()
 mykey = getKey()
@@ -129,14 +130,49 @@ def make_list_from_dict(x):
     return l
 
 
+def get_result_from_ml(data):
+    '''Pass data dict to this function and receive the response from ML'''
+    body = str.encode(json.dumps(data))
+    url = get_ml_url()
+    api_key = getMLAPIKey()
+    headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
+    req = urllib2.Request(url, body, headers)
 
-data =  {
-     "Inputs": {
-         "input1": {
-             "ColumnNames": ["PartitionKey", "RowKey", "aX", "aY", "aZ", "bX", "bY", "bZ", "cX", "cY", "cZ", "dX", "dY", "dZ"],
-             "Values": [ [ "value", "", "123", "191", "1015", "30", "101", "1015", "19", "73", "1014", "31", "64", "1013" ], [ "value", "", "277", "239", "992", "428", "381", "992", "423", "359", "993", "423", "349", "993" ], ]
-             },
-         },
-     "GlobalParameters": {}
-     }
+    try:
+        response = urllib2.urlopen(req)
+
+        result = response.read()
+        return result
+    except urllib2.HTTPError, error:
+        print("The request failed with status code: " + str(error.code))
+        print(error.info())
+        print(json.loads(error.read()))
+
+def get_two_states():
+    '''returns tuple of next two states from Queue'''
+    gd = getDictFromQueue
+    makel = make_list_from_dict
+    md = make_data
+    getr = get_result_from_ml
+    rs = return_states_from_request
+
+    return rs(getr(md(makel(gd()), makel(gd()))))
+
+    #x = getDictFromQueue()
+    #l = make_list_from_dict(x)
+    #d = make_data(l, l)
+    
+    #r = get_result_from_ml(d)
+    #s = return_states_from_request(r)
+    #return s
+
+#data =  {
+#     "Inputs": {
+#         "input1": {
+#             "ColumnNames": ["PartitionKey", "RowKey", "aX", "aY", "aZ", "bX", "bY", "bZ", "cX", "cY", "cZ", "dX", "dY", "dZ"],
+#             "Values": [ [ "value", "", "123", "191", "1015", "30", "101", "1015", "19", "73", "1014", "31", "64", "1013" ], [ "value", "", "277", "239", "992", "428", "381", "992", "423", "359", "993", "423", "349", "993" ], ]
+#             },
+#         },
+#     "GlobalParameters": {}
+#     }
