@@ -122,12 +122,15 @@ def make_data(one, two):
     return data
 
 def make_list_from_dict(x):
-    y = sorted(x)
     l = ['value', '']
-    for i in y:
-        l.append(x[i])
-    l = map(str, l)
-    return l
+    if(x):
+        y = sorted(x)
+        for i in y:
+            l.append(x[i])
+        l = map(str, l)
+        return l
+    else:
+        return l
 
 
 def get_result_from_ml(data):
@@ -175,6 +178,15 @@ def create_new_queue():
     ''' creates a queue of the string stored in queueName '''
     queue = getAzureQueue()
     queue.create_queue(getQueueName())
+
+
+def clear_queue():
+    ''' 
+    Clears out all message from the Queue, to be used when we need to start fresh
+    or when we need to catch up.  
+    '''
+    queue = getAzureQueue()
+    queue.clear_messages(getQueueName())
 
 
     #x = getDictFromQueue()
