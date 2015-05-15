@@ -160,8 +160,22 @@ def get_two_states():
     return rs(getr(md(makel(gd()), makel(gd()))))
 
 def delete_queue():
+    ''' deletes current queue name '''
     queue = getAzureQueue()
     queue.delete_queue(getQueueName())
+
+def set_new_queue_name(newName):
+    ''' 
+    allows creation of new Queue
+    call getQueueName again with createNewQueue to begin using a new queue 
+    '''
+    queueName = newName
+
+def create_new_queue():
+    ''' creates a queue of the string stored in queueName '''
+    queue = getAzureQueue()
+    queue.create_queue(getQueueName())
+
 
     #x = getDictFromQueue()
     #l = make_list_from_dict(x)
