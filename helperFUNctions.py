@@ -159,6 +159,10 @@ def get_two_states():
 
     return rs(getr(md(makel(gd()), makel(gd()))))
 
+def delete_queue():
+    queue = getAzureQueue()
+    queue.delete_queue(getQueueName())
+
     #x = getDictFromQueue()
     #l = make_list_from_dict(x)
     #d = make_data(l, l)
