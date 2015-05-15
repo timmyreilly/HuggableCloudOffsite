@@ -8,6 +8,21 @@ app = Flask(__name__)
 
 
 
+while True:
+    s = get_two_states()
+    if s == False:
+        print "Nothing in Queue"
+        time.sleep(0.2)
+    else:
+        print s
+
+    if eval(getQueueCount()) > 5:
+        print getQueueCount()
+        print 'Clearing Queue'
+        clear_queue()
+
+
+
 
 while True:
 
