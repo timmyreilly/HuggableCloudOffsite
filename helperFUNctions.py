@@ -189,6 +189,48 @@ def clear_queue():
     queue.clear_messages(getQueueName())
 
 
+def peek_message():
+    messages = queue_service.peek_messages(getQueueName())
+    for message in messages:
+        print(message.message_text)
+
+
+def is_queue_over_ten():
+    if eval(getQueueCount()) > 10:
+        return True
+    else:
+        return False
+
+ 
+def process_messages_from_queue():
+    ''' 
+    returns tuple of two next messages
+    and manages the queue length if too long
+    and returns false if nothing available
+    '''
+    qCount = eval(getQueueCount())
+    gd = getDictFromQueue
+    makel = make_list_from_dict
+    md = make_data
+    getr = get_result_from_ml
+    rs = return_states_from_request
+    print qCount
+    if qCount <= 0:
+        print 'Queue Empty'
+        return False
+    else:
+        r = rs(getr(md(makel(gd()), makel(gd()))))
+        if qCount > 10:
+            print 'Queue too large -- clearing'
+            clear_queue()
+            print r
+            return r
+        else:
+            print 'Queue just right'
+            print r
+            return r
+
+
     #x = getDictFromQueue()
     #l = make_list_from_dict(x)
     #d = make_data(l, l)
