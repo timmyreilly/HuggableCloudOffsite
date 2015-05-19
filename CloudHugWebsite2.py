@@ -7,6 +7,10 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
+while True:
+    m = process_messages_from_queue()
+    print m
+
 
 while True:
     s = get_two_states()

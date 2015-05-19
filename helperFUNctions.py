@@ -123,14 +123,33 @@ def make_data(one, two):
 
 def make_list_from_dict(x):
     l = ['value', '']
-    if(x):
-        y = sorted(x)
+    y = sorted(x)
+    for i in y:
+        l.append(x[i])
+    l = map(str, l)
+    return l
+
+    #if x[0] == '':
+    #    return l
+    #else:
+    #    y = sorted(x)
+    #    for i in y:
+    #        l.append(x[i])
+    #    l = map(str, l)
+    #    return l
+    
+
+def make_list_from_dict_v(x):
+    l = ['value', '']
+    y = sorted(x)
+    try:
         for i in y:
             l.append(x[i])
         l = map(str, l)
+    except TypeError:
+        print ('error of type: TypeError')
         return l
-    else:
-        return l
+           
 
 
 def get_result_from_ml(data):
@@ -219,7 +238,8 @@ def process_messages_from_queue():
         print 'Queue Empty'
         return False
     else:
-        r = rs(getr(md(makel(gd()), makel(gd()))))
+        l = makel(gd())
+        r = rs(getr(md(l, l)))
         if qCount > 10:
             print 'Queue too large -- clearing'
             clear_queue()
