@@ -3,7 +3,7 @@ from helperFUNctions import *
 
 from azure.storage import Entity, QueueService
 
-import spidev CHANGE THIS BACK ON FOR PI DEPLOYMENT
+import spidev 
 
 spi = spidev.SpiDev()
 spi.open(0,0)
