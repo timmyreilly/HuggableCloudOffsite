@@ -46,7 +46,7 @@
     <Compile Include="SendCloudDataCopy.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SendCloudDataOldRaw.py">
+    <Compile Include="SendCloudDataOldRawQueue.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tokens.py">

@@ -6,8 +6,8 @@ import random
 import json
 import urllib2
 
-myaccount = getAccount()
-mykey = getKey()
+#myaccount = getAccount()
+#mykey = getKey()
 
 table_service = TableService(account_name=myaccount, account_key=mykey)
 queue_service = QueueService(account_name=myaccount, account_key=mykey)
@@ -94,15 +94,15 @@ def getDictFromQueue():
         return {''}
 
 
-def generateRandom(xyorz):
+def generateRandom(zeroonetwo):
     ''' 
-    generates random numbers for x (single digit), y(2 digit, z(3 digit) 
+    generates random numbers for 0 (single digit), 1 (2 digit), 2 (3 digit) 
     '''
-    if xyorz == 'x':
+    if zeroonetwo == 0:
         return random.randint(0, 9)
-    if xyorz == 'y':
+    if zeroonetwo == 1:
         return random.randint(10, 99)
-    if xyorz == 'z':
+    if zeroonetwo == 2:
         return random.randint(100, 999)
 
 def getQueueCount():
