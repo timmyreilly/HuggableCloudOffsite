@@ -7,9 +7,9 @@ from azure.storage import TableService, Entity
 
 # ++++ Uncomment this before running on pi: ++++ 
 
-#import spidev
-#spi = spidev.SpiDev()
-#spi.open(0,0)
+import spidev
+spi = spidev.SpiDev()
+spi.open(0,0)
 
 myaccount = getAccount()
 mykey = getKey()
@@ -30,16 +30,16 @@ table_service.create_table(getMLTableName())
 
 # ++++ Uncomment this before running on pi ++++
 
-#def analog_read(channel):
-#        r = spi.xfer2([1, (8 + channel) << 4, 0])
-#        adc_out = ((r[1]&3) << 8) + r[2]
-#        return adc_out
+def analog_read(channel):
+        r = spi.xfer2([1, (8 + channel) << 4, 0])
+        adc_out = ((r[1]&3) << 8) + r[2]
+        return adc_out
 
 #a_r = analog_read
 
 ### +++ Comment this out before running on pi ++++
 
-a_r = generateRandom
+#a_r = generateRandom
 
 while True: 
     x = get_input_type()
