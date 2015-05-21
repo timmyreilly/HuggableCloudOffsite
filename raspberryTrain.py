@@ -52,7 +52,7 @@ while True:
         time.sleep(0.5)
         for tableSlot in TableSlotNeutral:
             for abcd in periods:
-                time.sleep(0.1)
+                time.sleep(0.25)
                 record.update({abcd+'X': a_r(0), abcd+'Y': a_r(1), abcd+'Z': a_r(2)})
             print record
             print tableSlot
@@ -65,7 +65,7 @@ while True:
         time.sleep(0.5)
         for tableSlot in TableSlotShaking:
             for abcd in periods:
-                time.sleep(0.1)
+                time.sleep(0.25)
                 record.update({abcd+'X': a_r(0), abcd+'Y': a_r(1), abcd+'Z': a_r(2)})
             print record
             print tableSlot
@@ -78,7 +78,7 @@ while True:
         time.sleep(0.5)
         for tableSlot in TableSlotSpinning:
             for abcd in periods:
-                time.sleep(0.1)
+                time.sleep(0.25)
                 record.update({abcd+'X': a_r(0), abcd+'Y': a_r(1), abcd+'Z': a_r(2)})
             print record
             print tableSlot
@@ -91,7 +91,7 @@ while True:
         time.sleep(0.5)
         for tableSlot in TableSlotPunching:
             for abcd in periods:
-                time.sleep(0.1)
+                time.sleep(0.25)
                 record.update({abcd+'X': a_r(0), abcd+'Y': a_r(1), abcd+'Z': a_r(2)})
             print record
             print tableSlot
@@ -104,7 +104,7 @@ while True:
         time.sleep(0.5)
         for tableSlot in TableSlotHugging:
             for abcd in periods:
-                time.sleep(0.1)
+                time.sleep(0.25)
                 record.update({abcd+'X': a_r(0), abcd+'Y': a_r(1), abcd+'Z': a_r(2)})
             print record
             print tableSlot
@@ -114,7 +114,7 @@ while True:
         print 'send 1000 points of data to ML set marked throwing'
         time.sleep(5.0)
         print 'START'
-        time.sleep(0.5)
+        time.sleep(0.25)
         for tableSlot in TableSlotThrowing:
             for abcd in periods:
                 time.sleep(0.1)
