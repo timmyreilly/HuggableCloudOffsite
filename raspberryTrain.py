@@ -35,7 +35,7 @@ def analog_read(channel):
         adc_out = ((r[1]&3) << 8) + r[2]
         return adc_out
 
-#a_r = analog_read
+a_r = analog_read
 
 ### +++ Comment this out before running on pi ++++
 
