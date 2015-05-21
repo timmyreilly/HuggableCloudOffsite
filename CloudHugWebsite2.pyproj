@@ -34,6 +34,9 @@
     <Compile Include="MLTrainingSet.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="raspberryML.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="RAWSendCloudDataCopy.py">
       <SubType>Code</SubType>
     </Compile>
@@ -41,6 +44,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SendCloudDataCopy.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SendCloudDataOldRaw.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tokens.py">

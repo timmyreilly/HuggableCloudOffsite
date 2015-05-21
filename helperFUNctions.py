@@ -16,6 +16,21 @@ queueName = 'acceldata'
 tableName = 'accel4'
 mlTableName = 'MLTraining'
 
+def getAccount():
+    return myaccount
+
+def getKey():
+    return mykey
+
+def getRedisToken():
+    return redisPassword
+
+def getMLAPIKey():
+    return mlAPIKey 
+
+def get_ml_url():
+    return mlURL
+
 def getAzureTable():
     '''
     returns table_service object of current storage account in use
