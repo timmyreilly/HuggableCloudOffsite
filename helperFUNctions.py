@@ -123,7 +123,7 @@ def get_input_type():
     h for hugging
     t for thrown
     '''
-    state = raw_input("Enter 'n' for neutral or 's' for shaking -> ")
+    state = raw_input("Enter n, s, sp, p, h, t to set training mode -> ")
     if state == 'n' or 's' or 'sp' or 'p' or 'h' or 't' :
         return state
     else:

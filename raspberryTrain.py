@@ -46,7 +46,7 @@ while True:
     print x
     if x == 'n':
         print 'In 5 seconds start neutral'
-        print 'send 2000 points of data to ML set marked neutral'
+        print 'send 1000 points of data to ML set marked neutral'
         time.sleep(5.0)
         print 'START'
         time.sleep(0.5)
@@ -59,7 +59,7 @@ while True:
             table_service.insert_or_replace_entity(getMLTableName(), 'NEUTRAL', tableSlot, record)
     elif x == 's':
         print 'In 5 seconds start shaking'
-        print 'send 2000 points of data to ML set marked shaking'
+        print 'send 1000 points of data to ML set marked shaking'
         time.sleep(5.0)
         print 'START'
         time.sleep(0.5)
@@ -72,7 +72,7 @@ while True:
             table_service.insert_or_replace_entity(getMLTableName(), 'SHAKING', tableSlot, record)
     elif x == 'sp':
         print 'In 5 seconds start spinning'
-        print 'send 2000 points of data to ML set marked spinning'
+        print 'send 1000 points of data to ML set marked spinning'
         time.sleep(5.0)
         print 'START'
         time.sleep(0.5)
@@ -85,7 +85,7 @@ while True:
             table_service.insert_or_replace_entity(getMLTableName(), 'SPINNING', tableSlot, record)
     elif x == 'p':
         print 'In 5 seconds start punching'
-        print 'send 2000 points of data to ML set marked punching'
+        print 'send 1000 points of data to ML set marked punching'
         time.sleep(5.0)
         print 'START'
         time.sleep(0.5)
@@ -98,7 +98,7 @@ while True:
             table_service.insert_or_replace_entity(getMLTableName(), 'PUNCHING', tableSlot, record)
     elif x == 'h':
         print 'In 5 seconds start hugging'
-        print 'send 2000 points of data to ML set marked hugging'
+        print 'send 1000 points of data to ML set marked hugging'
         time.sleep(5.0)
         print 'START'
         time.sleep(0.5)
@@ -111,7 +111,7 @@ while True:
             table_service.insert_or_replace_entity(getMLTableName(), 'HUGGING', tableSlot, record)
     elif x == 't':
         print 'In 5 seconds start throwing'
-        print 'send 2000 points of data to ML set marked throwing'
+        print 'send 1000 points of data to ML set marked throwing'
         time.sleep(5.0)
         print 'START'
         time.sleep(0.5)
