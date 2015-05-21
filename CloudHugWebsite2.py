@@ -11,6 +11,7 @@ while True:
     m = get_state_managed_queue()
     print m
 
+
 while True:
     m = process_messages_from_queue()
     print m

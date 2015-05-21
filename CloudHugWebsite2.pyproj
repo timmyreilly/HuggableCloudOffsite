@@ -34,7 +34,13 @@
     <Compile Include="MLTrainingSet.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="raspberryHugs.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="raspberryML.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="raspberryTrain.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="RAWSendCloudDataCopy.py">

@@ -3,7 +3,7 @@ import time
 from tokens import *
 from helperFUNctions import *
 
-from azure.storage import TableService, Entity, QueueService
+from azure.storage import TableService, Entity
 
 myaccount = getAccount()
 mykey = getKey()
