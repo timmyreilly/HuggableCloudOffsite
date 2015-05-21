@@ -19,9 +19,9 @@ table_service = TableService(account_name=myaccount, account_key=mykey)
 TableSlotNeutral = return_list_generator(0,999)         #n for neutral
 TableSlotShaking = return_list_generator(1000, 1999)    #s for shaking
 TableSlotSpinning = return_list_generator(2000, 2999)   #sp for spinning
-TableSlotPunched = return_list_generator(3000, 3999)    #p for punching
-TableSlotHugged = return_list_generator(4000, 4999)     #h for hugging
-TableSlotThrown = return_list_generator(5000, 5999)     #t for thrown
+TableSlotPunching = return_list_generator(3000, 3999)    #p for punching
+TableSlotHugging = return_list_generator(4000, 4999)     #h for hugging
+TableSlotThrowing = return_list_generator(5000, 5999)     #t for thrown
 
 periods = ('a', 'b', 'c', 'd')
 record = {}
