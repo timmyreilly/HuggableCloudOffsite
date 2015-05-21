@@ -12,7 +12,7 @@ import urllib2
 table_service = TableService(account_name=myaccount, account_key=mykey)
 queue_service = QueueService(account_name=myaccount, account_key=mykey)
 
-queueName = 'acceldata'
+queueName = 'mlqueue'
 tableName = 'accel4'
 mlTableName = 'MLTraining'
 
@@ -321,6 +321,22 @@ def process_messages_from_queue():
             print 'Queue just right'
             print r
             return r
+
+def get_state_managed_queue():
+    qCount = eval(getQueueCount())
+    if qCount <= 0:
+        print 'Queue Empty'
+        return False
+    else:
+        state = eval(getMessage())[0]
+        print state
+        if qCount > 10:
+            print 'Queue too large -- clearing'
+            clear_queue()
+        else:
+            print 'Queue just right'
+        return state
+
 
 
     #x = getDictFromQueue()
