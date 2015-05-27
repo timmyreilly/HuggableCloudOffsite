@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>146b401a-5c0f-46b7-9a86-bf1b929163c4</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>CloudWebsiteOne.py</StartupFile>
+    <StartupFile>serve.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -31,6 +31,9 @@
     <Compile Include="CloudWebsiteOne.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="geventExample.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="helperFUNctions.py">
       <SubType>Code</SubType>
     </Compile>
@@ -40,7 +43,7 @@
     <Compile Include="raspberryHugs.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="raspberryML.py">
+    <Compile Include="raspberryHugsPseudo.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="raspberryTrain.py">
@@ -56,6 +59,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SendCloudDataOldRawQueue.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="serve.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tokens.py">
@@ -76,11 +82,17 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="static\" />
     <Folder Include="templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="requirements.txt" />
+    <Content Include="static\favicon.ico" />
+    <Content Include="static\style.css" />
+    <Content Include="static\ws.js" />
     <Content Include="templates\base.html" />
+    <Content Include="templates\index.html" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

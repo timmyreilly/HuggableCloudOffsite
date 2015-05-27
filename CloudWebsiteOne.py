@@ -10,5 +10,12 @@ app = Flask(__name__)
 def hello():
     return get_state_managed_queue()
 
+@app.route("/publish")
+def publish():
+    def notify():
+        msg = str(time.time())
+        for sub in subscriptions[:]
+
+
 if __name__ == "__main__":
     app.run()
