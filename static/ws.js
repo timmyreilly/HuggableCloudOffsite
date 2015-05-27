@@ -53,14 +53,17 @@ function display_data(data) {
         }
         else {
             console.log("data.value:", data.value, "no prev_data");
+            console.log("data.other:", data.other, "no prev_data lalala");
             delta_msg = ' (first data point)';
         }
         msg = "<b>" + data.value.toFixed(3) + 's</b> since ' +
-              '<a href="http://en.wikipedia.org/wiki/Unix_time">the Epoch</a>';
+              '<a href="http://en.wikipedia.org/wiki/Unix_time">the Epoch</a>' +
+              "<b>" + data.other + "</b>";
 
         // update the contents of several HTML divs via jQuery
         $('div#value').html(msg + delta_msg);
         $('div#contents').html(data.contents);
+        $('div#other').html(data.other);
 
         // remember this data, in case want to compare it to next update
         prev_data = data;

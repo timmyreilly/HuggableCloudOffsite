@@ -4,6 +4,8 @@ from geventwebsocket.handler import WebSocketHandler
 from gevent.pywsgi import WSGIServer
 import gevent
 
+from helperFUNctions import *
+
 from flask import Flask, jsonify, request, render_template, send_from_directory
 import time, threading, random, webbrowser, os, platform
 
@@ -37,9 +39,12 @@ def data():
     now    = time.time()
     nowstr = time.strftime(time_format[fmt])
 
+    other = get_state_managed_queue()
+
     info = { 'value':    now,
              'contents': "The time is now <b>{0}</b> (format = '{1}')".format(nowstr, fmt),
-             'format':   fmt
+             'format':   fmt,
+             'other': other
             }
     return jsonify(info)
 
