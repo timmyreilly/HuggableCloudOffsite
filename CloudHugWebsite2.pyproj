@@ -24,20 +24,20 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="azurestoragesampler.py">
+    <Compile Include="old\azurestoragesampler.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CloudHugWebsite2.py" />
     <Compile Include="CloudWebsiteOne.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="geventExample.py">
+    <Compile Include="old\geventExample.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="helperFUNctions.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MLTrainingSet.py">
+    <Compile Include="old\MLTrainingSet.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="raspberryHugs.py">
@@ -49,16 +49,16 @@
     <Compile Include="raspberryTrain.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RAWSendCloudDataCopy.py">
+    <Compile Include="old\RAWSendCloudDataCopy.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RequestResponseML.py">
+    <Compile Include="old\RequestResponseML.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SendCloudDataCopy.py">
+    <Compile Include="old\SendCloudDataCopy.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SendCloudDataOldRawQueue.py">
+    <Compile Include="old\SendCloudDataOldRawQueue.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="serve.py">
@@ -82,6 +82,7 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="old\" />
     <Folder Include="static\" />
     <Folder Include="templates\" />
   </ItemGroup>
