@@ -37,7 +37,7 @@ def get_state():
     for abcd in periods: 
         time.sleep(0.25)
         record.update({abcd+'X': a_r(0), abcd+'Y': a_r(1), abcd+'Z': a_r(2)})
-        print record
+    print record
     return record
 
 m_l = make_list_from_dict
@@ -55,8 +55,7 @@ def receive_states_from_current_state(record):
 
 while True:
     s = get_state()
-    queue_service.put_message('mlqueue', return_states_from_request(get_result_from_ml(make_data(make_list_from_dict(s),make_list_from_dict(s)))))
-
-
-
+    entry = r_r(g_r(m_d(m_l(s), m_l(s))))
+    print entry
+    queue_service.put_message('mlqueue', entry)
 

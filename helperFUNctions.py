@@ -5,6 +5,7 @@ from azure.storage import TableService, Entity, QueueService
 import random
 import json
 import urllib2
+import datetime
 
 #myaccount = getAccount()
 #mykey = getKey()
@@ -157,8 +158,8 @@ def return_states_from_request(result):
     TODO: Pythonicisize
     '''
     x = eval(result)
-    first = x['Results']['output1']['value']['Values'][0][13]
-    second = x['Results']['output1']['value']['Values'][1][13]
+    first = x['Results']['output1']['value']['Values'][0][-1]
+    second = x['Results']['output1']['value']['Values'][1][-1]
     return first, second
 
 def make_data(one, two):
@@ -167,15 +168,21 @@ def make_data(one, two):
     from make_list_from_dict. 
     It can accept to different entries. 
     '''
+
     data =  {
-     "Inputs": {
-         "input1": {
-             "ColumnNames": ["PartitionKey", "RowKey", "aX", "aY", "aZ", "bX", "bY", "bZ", "cX", "cY", "cZ", "dX", "dY", "dZ"],
-             "Values": [ one, two, ]
-             },
-         },
-     "GlobalParameters": {}
-     }
+        "Inputs": 
+        {
+            "input1":
+            {
+                "ColumnNames": ["PartitionKey", "RowKey", "aX", "aY", "aZ", "bX", "bY", "bZ", "cX", "cY", "cZ", "dX", "dY", "dZ"],
+                "Values": [ one, two ]
+            },
+        },
+        "GlobalParameters": 
+        {
+            }
+    }
+
     return data
 
 def make_list_from_dict(x):
@@ -185,7 +192,7 @@ def make_list_from_dict(x):
     Potential FIX:
     add logic that allows make_list_from_dict run only if there are two or more messages in Queue
     '''
-    l = ['value', '']
+    l = ['value', '1']
     y = sorted(x)
     for i in y:
         l.append(x[i])
