@@ -64,6 +64,9 @@
     <Compile Include="serve.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="serveCopy.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tokens.py">
       <SubType>Code</SubType>
     </Compile>
