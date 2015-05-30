@@ -94,8 +94,10 @@
     <Content Include="requirements.txt" />
     <Content Include="static\favicon.ico" />
     <Content Include="static\style.css" />
+    <Content Include="static\wsCopy.js" />
     <Content Include="static\ws.js" />
     <Content Include="templates\base.html" />
+    <Content Include="templates\indexCopy.html" />
     <Content Include="templates\index.html" />
   </ItemGroup>
   <PropertyGroup>

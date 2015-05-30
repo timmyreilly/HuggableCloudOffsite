@@ -9,14 +9,14 @@ from helperFUNctions import *
 from flask import Flask, jsonify, request, render_template, send_from_directory
 import time, threading, random, webbrowser, os, platform
 
-start_local_browser = platform.system() == 'Darwin'
+start_local_browser = platform.system() == 'Windows'
 
 app = Flask(__name__)
     
 if start_local_browser:
     PORT = 5000 + random.randint(0, 999)
 else:
-    PORT = 5020
+    PORT = 5000
 MIN_DELAY, MAX_DELAY = 5, 20
 
 time_format = {
@@ -41,7 +41,7 @@ def data():
 
     other = get_state_managed_queue()
 
-    info = { 'value':    now,
+    info = { 'value':    other,
              'contents': "The time is now <b>{0}</b> (format = '{1}')".format(nowstr, fmt),
              'format':   fmt,
              'other': other
@@ -80,9 +80,10 @@ if __name__ == "__main__":
     if start_local_browser:
         # start server and web page pointing to it
         url = "http://127.0.0.1:{}".format(PORT)
-        wb = webbrowser.get('chrome')  # instead of None, can be "firefox" etc
+        wb = webbrowser.WindowsDefault()  # Using Windows Default instead
         threading.Timer(1.25, lambda: wb.open(url) ).start()
     
+    print 'Port: ' , PORT 
     http_server = WSGIServer(('', PORT), app, handler_class=WebSocketHandler)
 
     http_server.serve_forever()
