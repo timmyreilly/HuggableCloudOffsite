@@ -17,29 +17,43 @@ if start_local_browser:
     PORT = 5000 + random.randint(0, 999)
 else:
     PORT = 5000
+MIN_DELAY, MAX_DELAY = 5, 20
 
-MIN_DELAY, MAX_DELAY = 0, 3
+time_format = {
+    'one': "%H:%M:%S",
+    'best': "%a, %d %b %Y %H:%M:%S +0000",
+    'other': "%a, %H:%M",
+}
 
 @app.route("/data", methods=['GET'])
 def data():
     """
-    Provides the current state of the cloud
+    Provides the server's current timestamp, formatted in several different
+    ways, across a WebSocket connection. NB While other Python JSON emitters
+    will directly encode arrays and other data types, Flask.jsonify() appears to
+    require a dict.
     """
-
-    state_string = get_state_managed_queue()
-    now = time.time()
-
-    info = { 'time': now,
-            'state': state_string
-            }
-
-    return jsonify(info)
     
+    fmt    = request.args.get('format', 'best')  # gets query parameter here; default 'best'
+    
+    now    = time.time()
+    nowstr = time.strftime(time_format[fmt])
+
+    other = get_state_managed_queue()
+
+    info = { 'value':    other,
+             'contents': "The time is now <b>{0}</b> (format = '{1}')".format(nowstr, fmt),
+             'format':   fmt,
+             'other': other
+            }
+    return jsonify(info)
+
+
 @app.route("/updated")
 def updated():
     """
-    Notify the client that an update is ready. 
-    Contracted by the client to 'subscribe to the notification service.
+    Notify the client that an update is ready. Contacted by the client to
+    'subscribe' to the notification service. 
     """
     ws = request.environ.get('wsgi.websocket', None)
     print "web socket retrieved"
@@ -49,7 +63,7 @@ def updated():
             gevent.sleep(delay)
             ws.send('ready')
     else:
-        raise RuntimeError("Environment lacks WSGI WebSocket Support")
+        raise RuntimeError("Environment lacks WSGI WebSocket support")
 
 @app.route('/favicon.ico')
 def favicon():
@@ -59,6 +73,7 @@ def favicon():
 @app.route("/")
 def main():
     return render_template("index.html", port=PORT)
+    
 
 if __name__ == "__main__":
     
