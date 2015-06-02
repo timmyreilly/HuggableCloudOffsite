@@ -52,8 +52,10 @@ function display_data(data) {
             console.log("data.time", data.time, "current time of request...");
             delta_msg = ' (first data point)';
         }
-        msg = "<b>" + data.state + "</b> is the current cloud state at this time -> " + "<b>" + data.time "</b>";
+        //msg = "<b>" + data.state + "</b> is the current cloud state at this time -> " + "<b>" + data.time "</b>";
         // this is the message that will be sent to the client?
+        msg = "this is the message";
+
 
         $('div#value').html(msg + delta_msg);
         $('div#contents').html(data.state);

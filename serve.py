@@ -32,7 +32,7 @@ def data():
     info = { 'time': now,
             'state': state_string
             }
-
+    print info
     return jsonify(info)
     
 @app.route("/updated")
