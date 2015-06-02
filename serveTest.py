@@ -25,50 +25,20 @@ time_format = {
     'other': "%a, %H:%M",
 }
 
-@app.route("/data", methods=['GET'])
+@app.route("/data")
 def data():
+    """ 
+    Returns a string of the current state of the cloud from stat_managed_queue
     """
-    Provides the server's current timestamp, formatted in several different
-    ways, across a WebSocket connection. NB While other Python JSON emitters
-    will directly encode arrays and other data types, Flask.jsonify() appears to
-    require a dict.
-    """
+
+    state_string = get_state_managed_queue()
     
-    fmt    = request.args.get('format', 'best')  # gets query parameter here; default 'best'
-    
-    now    = time.time()
-    nowstr = time.strftime(time_format[fmt])
+    print state_string
 
-    other = get_state_managed_queue()
-
-    info = { 'value':    other,
-             'contents': "The time is now <b>{0}</b> (format = '{1}')".format(nowstr, fmt),
-             'format':   fmt,
-             'other': other
-            }
-    return jsonify(info)
+    return jsonify(state=state_string, time=time.time())
 
 
-@app.route("/updated")
-def updated():
-    """
-    Notify the client that an update is ready. Contacted by the client to
-    'subscribe' to the notification service. 
-    """
-    ws = request.environ.get('wsgi.websocket', None)
-    print "web socket retrieved"
-    if ws:
-        while True:
-            delay = random.randint(MIN_DELAY, MAX_DELAY)
-            gevent.sleep(delay)
-            ws.send('ready')
-    else:
-        raise RuntimeError("Environment lacks WSGI WebSocket support")
 
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
-                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route("/")
 def main():

@@ -12,13 +12,7 @@
 <body>
     <div id='frame'>
         <div id='updated'>UPDATEDDDD</div>
-        <div id='controls'>
-            Format: <select id="format">
-                <option value="one">just 1</option>
-                <option value="best" selected="selected">the very best!</option>
-                <option value="other">enh...something else</option>
-            </select><br />
-        </div>
+
         <div id='value' class='data'></div>
         <div id='contents' class='data'></div>
         <div id="other" class='data'></div>
@@ -26,5 +20,6 @@
     <script type="text/javascript">
             establish_websocket({{port}});
     </script>
+    <div id="state-list"></div>
 </body>
 </html>

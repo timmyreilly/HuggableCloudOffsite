@@ -17,39 +17,36 @@ if start_local_browser:
     PORT = 5000 + random.randint(0, 999)
 else:
     PORT = 5000
+MIN_DELAY, MAX_DELAY = 0, 1
 
-MIN_DELAY, MAX_DELAY = 0, 3
 
-@app.route("/data", methods=['GET'])
+@app.route("/data")
 def data():
-    """
-    Provides the current state of the cloud
+    """ 
+    Returns a string of the current state of the cloud from stat_managed_queue
     """
 
     state_string = get_state_managed_queue()
-    now = time.time()
-
-    info = { 'time': now,
-            'state': state_string
-            }
-    print info
-    return jsonify(info)
     
+    print state_string
+
+    return jsonify(state=state_string, time=time.time())
+
 @app.route("/updated")
 def updated():
     """
-    Notify the client that an update is ready. 
-    Contracted by the client to 'subscribe to the notification service.
+    Update the client that an update is ready. Contracted by the client to subscribe to the notification service
     """
     ws = request.environ.get('wsgi.websocket', None)
-    print "web socket retrieved"
+    print "Web Socket RETRIEVED"
     if ws:
         while True:
             delay = random.randint(MIN_DELAY, MAX_DELAY)
             gevent.sleep(delay)
             ws.send('ready')
     else:
-        raise RuntimeError("Environment lacks WSGI WebSocket Support")
+        raise RuntimeError("Environment lacks WSGI WebSocket support")
+
 
 @app.route('/favicon.ico')
 def favicon():
@@ -59,6 +56,7 @@ def favicon():
 @app.route("/")
 def main():
     return render_template("index.html", port=PORT)
+    
 
 if __name__ == "__main__":
     
@@ -66,7 +64,7 @@ if __name__ == "__main__":
         # start server and web page pointing to it
         url = "http://127.0.0.1:{}".format(PORT)
         wb = webbrowser.WindowsDefault()  # Using Windows Default instead
-        threading.Timer(1.25, lambda: wb.open(url) ).start()
+        threading.Timer(1.00, lambda: wb.open(url) ).start()
     
     print 'Port: ' , PORT 
     http_server = WSGIServer(('', PORT), app, handler_class=WebSocketHandler)
