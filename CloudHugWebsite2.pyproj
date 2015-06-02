@@ -61,6 +61,7 @@
     <Compile Include="old\SendCloudDataOldRawQueue.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="serveTest.py" />
     <Compile Include="serve.py">
       <SubType>Code</SubType>
     </Compile>
