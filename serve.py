@@ -23,7 +23,8 @@ MIN_DELAY, MAX_DELAY = 0, 1
 @app.route("/data")
 def data():
     """ 
-    Returns a string of the current state of the cloud from stat_managed_queue
+    Returns JSON object with the current state of the cloud from state_managed_queue
+    and a timestamp
     """
 
     state_string = get_state_managed_queue()
@@ -31,6 +32,7 @@ def data():
     print state_string
 
     return jsonify(state=state_string, time=time.time())
+
 
 @app.route("/updated")
 def updated():
