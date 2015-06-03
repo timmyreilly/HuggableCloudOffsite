@@ -1,5 +1,11 @@
-﻿var ws,                 // websocket
+﻿/*
+    ws.js
+*/
+"use strict"
+
+var ws,                 // websocket
     prev_data;          // remember data fetched last time
+
 
 
 function establish_websocket(port) {
@@ -42,7 +48,7 @@ function load_data() {
 function display_data(data) {
     // show the data acquired by load_data()
     
-    if(data && (data != prev_data)) {
+    if(data && (data !== prev_data)) {
         if(prev_data) {
             console.log("data.state: ", data.state, "prev_value.state: ", prev_data.state);
             $('div#value').html(data.state);
