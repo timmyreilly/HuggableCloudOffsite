@@ -2,5 +2,12 @@
     base.js
     to be used with base.html
 */
-"use strict";
+$(document).ready(function () {
+    "use strict";
+
+    
+
+
+
+})
 

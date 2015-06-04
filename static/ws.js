@@ -48,12 +48,13 @@ function load_data() {
 function display_data(data) {
     // show the data acquired by load_data()
     
-    if(data && (data !== prev_data)) {
+    if(data && (data != prev_data) && data.state) {
         if(prev_data) {
             console.log("data.state: ", data.state, "prev_value.state: ", prev_data.state);
             $('div#value').html(data.state);
             $('div#contents').html(data.time);
             $('div#other').html(data.time);
+            $('#state-list').prepend('<h3>' + data.state + ' ' + data.time + '</h3>' )
         }
         else {
             console.log("data.state: ", data.state, " no prev_data");
@@ -68,6 +69,15 @@ function display_data(data) {
         setTimeout(function() { $("#updated").fadeOut('slow'); }, 2500);
 }
 
+
+$(document).ready(function() {
+    // intial document setup - hide the #updated message and provide a 'loading...' message
+
+    $("div#updated").fadeOut(0);
+    //$("div#contents").append("loading...");
+    //$("div#contents, div#value").on('click', load_data);
+    $("div#contents, div#value").on(load_data);
+})
 // OLD CODE
         // compute a message to display comparing current data with previous data
         //var msg, delta_msg;
@@ -101,11 +111,4 @@ function display_data(data) {
         // A little UI Sparkle - show the update div then after a little while fade it away...
 
 
-$(document).ready(function() {
-    // intial document setup - hide the #updated message and provide a 'loading...' message
 
-    $("div#updated").fadeOut(0);
-    //$("div#contents").append("loading...");
-    $("div#contents, div#value").on('click', load_data);
-    $("div#contents, div#value").on(load_data);
-})

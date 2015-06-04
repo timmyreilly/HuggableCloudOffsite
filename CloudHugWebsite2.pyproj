@@ -61,6 +61,9 @@
     <Compile Include="old\SendCloudDataOldRawQueue.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="server.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="serveTest.py" />
     <Compile Include="serve.py">
       <SubType>Code</SubType>
@@ -86,15 +89,19 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="css\" />
+    <Folder Include="img\" />
+    <Folder Include="js\" />
     <Folder Include="old\" />
     <Folder Include="static\" />
     <Folder Include="templates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="js\base.js" />
     <Content Include="requirements.txt" />
-    <Content Include="static\favicon.ico" />
-    <Content Include="static\style.css" />
+    <Content Include="img\favicon.ico" />
+    <Content Include="css\style.css" />
     <Content Include="static\wsCopy.js" />
     <Content Include="static\ws.js" />
     <Content Include="templates\base.html" />

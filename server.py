@@ -1,9 +1,16 @@
+#!/usr/bin/env python
+
+from geventwebsocket.handler import WebSocketHandler
+from gevent.pywsgi import WSGIServer
+import gevent
+
 from helperFUNctions import *
 
 from flask import Flask, jsonify, request, render_template, send_from_directory
 import time, threading, random, webbrowser, os, platform
 
-start_local_browser = platform.system() == 'Windows'
+start_local_browser = platform.system() == 'Darwin'
+
 
 app = Flask(__name__)
     
@@ -13,7 +20,16 @@ else:
     PORT = 5000
 MIN_DELAY, MAX_DELAY = 0, 1
 
+# for testing
+PORT = 5000
 
+@app.route("/data")
+def data():
+    return jsonify(state=state_managed_queue(), time=time.time())
+
+@app.route("/")
+def base():
+    return render_template("base.html", port=PORT)
 
 if __name__ == "__main__":
     

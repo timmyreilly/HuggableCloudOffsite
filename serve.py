@@ -18,9 +18,10 @@ if start_local_browser:
 else:
     PORT = 5000
 MIN_DELAY, MAX_DELAY = 0, 1
+PORT = 5020
 
 
-@app.route("/data")
+@app.route("/data", methods=['GET'])
 def data():
     """ 
     Returns JSON object with the current state of the cloud from state_managed_queue

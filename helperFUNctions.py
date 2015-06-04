@@ -100,11 +100,11 @@ def generateRandom(zeroonetwo):
     generates random numbers for 0 (single digit), 1 (2 digit), 2 (3 digit) 
     '''
     if zeroonetwo == 0:
-        return random.randint(0, 9)
+        return random.randint(0, 999)
     if zeroonetwo == 1:
-        return random.randint(10, 99)
+        return random.randint(0, 999)
     if zeroonetwo == 2:
-        return random.randint(100, 999)
+        return random.randint(0, 999)
 
 def getQueueCount():
     ''' 
