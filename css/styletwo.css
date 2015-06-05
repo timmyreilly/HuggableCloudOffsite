@@ -1,5 +1,19 @@
 ﻿/* site.css */
 
+body { font-family: 'PT Sans', sans-serif; }
+
+#frame { padding: 0.25in; }
+
+#updated { background-color: yellow;
+           float: right;
+           margin-left: auto; margin-right: auto;
+           padding: 10px 12px 8px 12px; }
+
+.data { margin-top: 12px;
+        align-content: center;
+}
+
+
 header, footer {
   background-color: lightgray;
   border: solid 1px black;

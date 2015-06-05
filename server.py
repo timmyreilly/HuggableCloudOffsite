@@ -25,19 +25,24 @@ PORT = 5000
 
 @app.route("/data", methods=['GET'])
 def data():
-    return jsonify(state=state_managed_queue(), time=time.time())
+    state_string = get_state_managed_queue()
+    print state_string
+    return jsonify(state=state_string, time=time.time())
 
 @app.route("/updated")
 def updated():
+    """
+    Update the client that an update is ready. Contracted by the client to subscribe to the notification service
+    """
     ws = request.environ.get('wsgi.websocket', None)
-    print "web socket retrieved"
-    print ws
+    print "Web Socket RETRIEVED"
     if ws:
         while True:
-            gevent.sleep(1)
+            delay = random.randint(MIN_DELAY, MAX_DELAY)
+            gevent.sleep(delay)
             ws.send('ready')
     else:
-        raise RuntimeError("Environment lacks WSGI WebSocket Support")
+        raise RuntimeError("Environment lacks WSGI WebSocket support")
 
 @app.route('/favicon.ico')
 def favicon():

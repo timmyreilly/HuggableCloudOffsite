@@ -4,51 +4,47 @@
 
  -->
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>Huggable Cloud</title>
-    <!--[if lt IE 9]>
-        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-      <![endif]-->
-    <link rel="stylesheet" href="css/styletwo.css" />
+    
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico'}}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="{{ url_for("static", filename="ws.js") }}"></script>
+    <script src="{{ url_for("static", filename="betterws.js") }}"></script>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='{{ url_for("static", filename="css/styletwo.css") }}' rel='stylesheet' type='text/css'>
-
 </head>
 
 <body>
     <div id="main">
         <header>
-            <h1 class="main-title">The Huggable Cloud</h1>            
+            <h1 class="main-title">The Huggable Cloud</h1>
         </header>
-        <secion id="main">
-            <div id="current-state">
+        <div id="current-state">
             Current State
-            </div>
-            <div id="updated">UPDATE</div>
-            <div id="info">
-                <nav>
-                    <ul>
-                        <li><a href="http://timmyreilly.com">Info</a></li>
-                        <li><a href="http://timmyreilly.com">Contact</a></li>
-                        <li><a href="http://timmyreilly.com">Resources</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div id="state-list"> 
+        </div>
+        <div id="updated">UPDATE</div>
+        <!--<div id="info">
+            <nav>
+                <ul>
+                    <li><a href="http://timmyreilly.com">Info</a></li>
+                    <li><a href="http://timmyreilly.com">Contact</a></li>
+                    <li><a href="http://timmyreilly.com">Resources</a></li>
+                </ul>
+            </nav>
+        </div>-->
+        <div id="state-list">
             state-list
-            </div>
-        </secion>
+        </div>
         <footer>
             <p><a href="https://timmyreilly.com">Timmy Reilly</a></p>
         </footer>
     </div>
-    <script type="text/javascript"> establish_websocket({{port}}); </script>
+    <script type="text/javascript"> 
+        establish_websocket({{port}}); 
+    </script>
 </body>
 
 </html>

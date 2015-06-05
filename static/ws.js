@@ -7,7 +7,6 @@ var ws,                 // websocket
     prev_data;          // remember data fetched last time
 
 
-
 function establish_websocket(port) {
     if ("WebSocket" in window) {
         ws = new WebSocket("ws://" + document.domain + ":" + port.toString() + "/updated");
