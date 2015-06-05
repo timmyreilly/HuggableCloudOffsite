@@ -4,8 +4,27 @@
 
 "use strict"
 
-function establish_websocket(port) {
+var ws,
+    prev_data;
 
+function establish_websocket(port) {
+    if ("WebSocket" in window) {
+        ws = new WebSocket("ws://" + document.domain + ":" + port.toString() + "/updated");
+
+        ws.onstart = function () {
+            console.log('onstart' + ws);
+            ws.send('started');
+        };
+        ws.onmessage = function (msg) {
+            load_data();
+        };
+
+        ws.onclose = function (msg) {
+            $("#updated").html('Server Disconnected');
+            $("#updated").css('backgroundColor', '#FFCCFF');
+            $("#updated").fadeIn('fast');
+        }
+    }
 }
 
 function load_data() {

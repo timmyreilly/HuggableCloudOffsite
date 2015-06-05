@@ -9,7 +9,7 @@ from helperFUNctions import *
 from flask import Flask, jsonify, request, render_template, send_from_directory
 import time, threading, random, webbrowser, os, platform
 
-start_local_browser = platform.system() == 'Darwin'
+start_local_browser = platform.system() == 'Windows'
 
 
 app = Flask(__name__)
@@ -23,12 +23,28 @@ MIN_DELAY, MAX_DELAY = 0, 1
 # for testing
 PORT = 5000
 
-@app.route("/data")
+@app.route("/data", methods=['GET'])
 def data():
     return jsonify(state=state_managed_queue(), time=time.time())
 
+@app.route("/updated")
+def updated():
+    ws = request.environ.get('wsgi.websocket', None)
+    print "web socket retrieved"
+    print ws
+    if ws:
+        while True:
+            gevent.sleep(1)
+            ws.send('ready')
+    else:
+        raise RuntimeError("Environment lacks WSGI WebSocket Support")
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 @app.route("/")
-def base():
+def main():
     return render_template("base.html", port=PORT)
 
 if __name__ == "__main__":

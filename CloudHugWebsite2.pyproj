@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>146b401a-5c0f-46b7-9a86-bf1b929163c4</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>serve.py</StartupFile>
+    <StartupFile>server.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -98,10 +98,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="css\styletwo.css" />
     <Content Include="js\base.js" />
     <Content Include="requirements.txt" />
     <Content Include="img\favicon.ico" />
     <Content Include="css\style.css" />
+    <Content Include="static\betterws.js" />
+    <Content Include="static\favicon.ico" />
     <Content Include="static\wsCopy.js" />
     <Content Include="static\ws.js" />
     <Content Include="templates\base.html" />
