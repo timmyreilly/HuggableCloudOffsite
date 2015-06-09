@@ -1,21 +1,29 @@
 ﻿<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>WebSocket Updater</title>
+    <title>Huggable Cloud</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="{{ url_for("static", filename="ws.js") }}"></script>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
-    <link href='{{ url_for("static", filename="css\style.css") }}' rel='stylesheet' type='text/css'>
+    <!--<link href='{{ url_for("static", filename="css\style.css") }}' rel='stylesheet' type='text/css'>-->
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <div id='frame'>
+    <h1>Welcome to the Huggable Cloud!</h1>
+    <div id='frame' 
+         style="color: blue; font-family: Arial;">
         <div id='updated'>UPDATEDDDD</div>
 
         <div id='value' class='data'></div>
         <div id='contents' class='data'></div>
         <div id="other" class='data'></div>
     </div>
+
+    <footer>
+        @timmyreilly
+    </footer>
+
     <div id="state-list">state list</div>
 
     <script type="text/javascript">

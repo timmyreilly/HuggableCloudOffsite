@@ -67,7 +67,8 @@ if __name__ == "__main__":
         # start server and web page pointing to it
         url = "http://127.0.0.1:{}".format(PORT)
         wb = webbrowser.WindowsDefault()  # Using Windows Default instead
-        threading.Timer(1.00, lambda: wb.open(url) ).start()
+        #threading.Timer(1.00, lambda: wb.open(url) ).start()
+        
     
     print 'Port: ' , PORT 
     http_server = WSGIServer(('', PORT), app, handler_class=WebSocketHandler)
