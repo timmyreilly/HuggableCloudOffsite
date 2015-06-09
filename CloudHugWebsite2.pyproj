@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>146b401a-5c0f-46b7-9a86-bf1b929163c4</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>server.py</StartupFile>
+    <StartupFile>serve.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

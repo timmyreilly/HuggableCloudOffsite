@@ -7,3 +7,8 @@
 .data { margin-top: 12px;
         align-content: center;
 }
+
+.state-list {
+    color: blue;
+
+}
